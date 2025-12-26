@@ -179,6 +179,7 @@
             height: 0;
             overflow: hidden;
             background: #000;
+            cursor: pointer;
         }
 
         .video-container iframe {
@@ -187,6 +188,47 @@
             left: 0;
             width: 100%;
             height: 100%;
+        }
+
+        .video-thumbnail {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .video-thumbnail:hover {
+            opacity: 0.8;
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 0, 0, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .video-thumbnail:hover .play-button {
+            transform: scale(1.1);
+            background: rgba(255, 0, 0, 1);
+        }
+
+        .play-button::before {
+            content: "▶";
+            margin-left: 5px;
         }
 
         .tutorial-info {
@@ -357,14 +399,10 @@
                 </div>
 
                 <div class="tutorial-card">
-                    <div class="video-container">
-                        <iframe 
-                            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                            title="Advanced Features Tutorial" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            allowfullscreen>
-                        </iframe>
+                    <div class="video-container" onclick="window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank')">
+                        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg');">
+                            <div class="play-button"></div>
+                        </div>
                     </div>
                     <div class="tutorial-info">
                         <h3>Advanced Features</h3>
